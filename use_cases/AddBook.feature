@@ -1,4 +1,4 @@
-Feature: Add Book
+Feature:Add Book
 
   Scenario Outline: Add a book when the administrator is logged in
     Given the administrator is logged in
@@ -17,6 +17,6 @@ Feature: Add Book
     Then the book will not be added
     Examples:
       | title    | author  | ISBN  |
-      | math     | mahmood | 123   |
+      | math     | haytham | 123   |
       | physics  | masa    | 12345 |
       | software | hayasam | 12    |
