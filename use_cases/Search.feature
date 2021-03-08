@@ -6,7 +6,8 @@ Feature:  Search Books
    Examples:
       |title|
       |The Signature of All Things|
-      |The| 
+      |The|
+      |hello| 
    Scenario Outline: Search by author
    Given  Users not logged
    When  User enters Substring of valid Author "<author>" 
