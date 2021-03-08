@@ -6,14 +6,12 @@ public class Book {
 	public String author;
 	public String ISBN;
 	public String Signature;
-	public static Boolean added;
 	
 	public Book()
 	{
 		ISBN = "";
 		title = "None";
 		author = "Nobody";
-		added = false;
 	}
    
 	public void set_title(String my_title)
@@ -32,15 +30,8 @@ public class Book {
     {
      this.ISBN = my_ISBN;
     }
-    public void set_added(boolean k)
-    {
-     added = k;
-    }
-    
-    public boolean getAdded() 
-    {
-	 return added;
-    } 
+ 
+  
     public String getISBN() 
     {
 	 return this.ISBN;

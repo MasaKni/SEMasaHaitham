@@ -7,25 +7,27 @@ import Main_Package.Books_Library;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import Test_Package.AddBookSteps;
 
 public class SearchSteps {
     boolean found=false;
     int div=0;
     String sub="";
-    Books_Library  library= new Books_Library();
 
-    @Given("Users not logged")
-    public void users_not_logged() 
+    @Given("User logged in or not")
+    public void User_logged_in_or_not() 
     {
-      System.out.println("user not logged in");
+      System.out.println("Search book");
     }
 
     @When("User enters Substring of valid Title {string}")
     public void user_enters_substring_of_valid_title(String string) 
     {
+    	System.out.printf("----------- %s ----------- %n" , string );
+
 	  div=string.length();
 	
-	  for (Book book:library.Books)
+	  for (Book book:Books_Library.Books)
 	   {
 		  if (book.getTitle().length()>=div)
 		  { 
@@ -42,13 +44,13 @@ public class SearchSteps {
     	 if (found==false) 
     	 {   
 	   		 assertTrue(found==false);
-	   		 System.out.println("no book found with such name");
+	   		 System.out.println("No book found with such "+'"'+string+'"');
    	     } 
 	   	 else	  
 	   	 {
 		      assertTrue(found==true);
 			  div=string.length();
-			  for (Book book:library.Books)
+			  for (Book book:Books_Library.Books)
 			   {
 				  if (book.getTitle().length()>=div)
 				  { 
@@ -63,9 +65,11 @@ public class SearchSteps {
     @When("User enters Substring of valid Author {string}")
     public void user_enters_substring_of_valid_author(String string) 
     {
+    	System.out.printf("----------- %s ----------- %n" , string );
+
     	div=string.length();
     	
-  	  for (Book book:library.Books)
+  	  for (Book book:Books_Library.Books)
   	   {
   		 if (book.getAuthor().length()>=div)
 		    { 
@@ -82,13 +86,13 @@ public class SearchSteps {
     	 if (found==false) 
     	  {   
 	   		 assertTrue(found==false);
-	   		 System.out.println("no book found with such name");
+	   		 System.out.println("No book found with such "+'"'+string+'"');
    	      } 
 	   	 else	  
 	   	 {
 		      assertTrue(found==true);
 		  	  div=string.length();
-		  	  for (Book book:library.Books)
+		  	  for (Book book:Books_Library.Books)
 		  	   {
 		  		 if (book.getAuthor().length()>=div)
 				    { 
@@ -103,8 +107,10 @@ public class SearchSteps {
     @When("User enters Substring of valid ISBN {string}")
     public void user_enters_substring_of_valid_isbn(String string)
     {
+    	System.out.printf("----------- %s ----------- %n" , string );
+
   	  div=string.length();
-  	  for (Book book:library.Books)
+  	  for (Book book:Books_Library.Books)
   	   {
   		 if (book.getISBN().length()>=div)
 		    { 
@@ -122,13 +128,13 @@ public class SearchSteps {
     	 if (found==false) 
      	  {   
     		 assertTrue(found==false);
-    		 System.out.println("no book found with such name");
+    		 System.out.println("No book found with such "+'"'+string+'"');
     	  } 
     	 else	  
     	 {
 	    	  assertTrue(found==true);
 	    	  div=string.length();
-	    	  for (Book book:library.Books)
+	    	  for (Book book:Books_Library.Books)
 	    	   {
 	    		  if (book.getISBN().length()>=div)
 	  		      { 
