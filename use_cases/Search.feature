@@ -7,7 +7,7 @@ Feature:  Search Books
       |title|
       |The Signature of All Things|
       |The|
-      |hello| 
+      |software|
    Scenario Outline: Search by author
    Given  Users not logged
    When  User enters Substring of valid Author "<author>" 
