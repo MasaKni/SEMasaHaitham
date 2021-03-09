@@ -50,13 +50,25 @@ public void the_user_enter_the_the_and_the_and_signature_is(String title, String
 
 
 
-    @Then("the book will be added")
-    public void the_book_will_be_added() {
-    	if (Added==true)
-    	{	assertTrue(Added == true);
-    	  System.out.println("-----------Book Added Sucsessfully-----------");
-    	  }
-    }
+	@Then("if the ISBN is valid the book will be added")
+	public void if_the_isbn_is_valid_the_book_will_be_added() {
+		if (Added==true)
+		{	assertTrue(Added == true);
+			System.out.println("-----------Book Added Sucsessfully-----------");
+		}
+		else{
+			System.out.println("-----------Book can't be added because the ISBN is invalid----------- ");
+		}
+	}
+
+
+//    @Then("the book will be added")
+//    public void the_book_will_be_added() {
+//    	if (Added==true)
+//    	{	assertTrue(Added == true);
+//    	  System.out.println("-----------Book Added Sucsessfully-----------");
+//    	  }
+//    }
 
     @Given("the administrator is not logged in")
     public void the_administrator_is_not_logged_in() {
