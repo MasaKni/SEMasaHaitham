@@ -6,12 +6,13 @@ import io.cucumber.java.en.When;
 import Main_Package.Book;
 import Main_Package.Books_Library;
 import static org.junit.Assert.assertTrue;
-
+import Main_Package.Books_Library;
 public class AddBookSteps {
 	boolean Added=false;
 	char[] ISBN ;
 	int num=10;
 	int tot=0;
+	String check="";
      Books_Library library = new Books_Library();
      
     @Given("the administrator is logged in")
@@ -23,29 +24,37 @@ public class AddBookSteps {
 
 @When("the user enter the {string} , the {string} and the {string} and Signature is {string}")
 public void the_user_enter_the_the_and_the_and_signature_is(String title, String author, String isbn, String sign) {
-
-	  for (int j = 0; j <= isbn.length() - 1; j++) 
-	   { 
-		  if (Character.getNumericValue(isbn.charAt(j))>= 0|| Character.getNumericValue(isbn.charAt(j))<= 9)
-		  {
-			  tot+=Character.getNumericValue(isbn.charAt(j)) *num;
-			  num--;
+	System.out.printf("----------- %s ----------- %s ----------- %s ----------- %s ----------- %n" , title,author,isbn,sign );
+	boolean flag=false;
+	for (Book book:Books_Library.Books) 
+	{
+		if (isbn.equals(book.getISBN()) ) 
+			{flag=true; }
+	}	
+		if(flag== false)
+		{	for (int j = 0; j <= isbn.length() - 1; j++) 
+		     { 
+			  if (Character.getNumericValue(isbn.charAt(j))>= 0|| Character.getNumericValue(isbn.charAt(j))<= 9)
+			    {
+				  tot+=Character.getNumericValue(isbn.charAt(j)) *num;
+				  num--;
+			    }
+			  else 
+				{
+				  Added= false;
+				  break;
+				}
+		     }
+			
+		     if(tot%11 == 0)
+		      {
+			    library.addBook(title,author,isbn,sign);
+		        Added=true;
+		      }
+		     else 
+			  Added=false;
 		  }
-		  else 
-			{
-			  Added= false;
-			  break;
-			}
-	   }
-	  if(tot%11 == 0)
-	  {
-		library.addBook(title,author,isbn,sign);
-	     Added=true;
-	  }
-	  else 
-		  Added=false;
-	  tot=0;
-	  num=10;
+	
 }
 
 
