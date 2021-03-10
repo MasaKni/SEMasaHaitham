@@ -5,7 +5,6 @@ public class login {
     public String password;
     public String entered_username;
     public String entered_passsword;
-    public static boolean logged_in = true;
     public void set_username(String myusername){
         this.username = myusername;
     }
