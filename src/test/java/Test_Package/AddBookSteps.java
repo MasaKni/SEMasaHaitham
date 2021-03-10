@@ -66,6 +66,7 @@ public void the_user_enter_the_the_and_the_and_signature_is(String title, String
 			System.out.println("-----------Book Added Sucsessfully-----------");
 		}
 		else{
+			assertTrue(Added == false);
 			System.out.println("-----------Book can't be added because the ISBN is invalid----------- ");
 		}
 	}
