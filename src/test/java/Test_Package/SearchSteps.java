@@ -2,8 +2,8 @@ package Test_Package;
 
 import static org.junit.Assert.assertTrue;
 
-import Main_Package.Book;
-import Main_Package.Books_Library;
+import mainpackage.Book;
+import mainpackage.BooksLibrary;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +27,7 @@ public class SearchSteps {
 
 	  div=string.length();
 	
-	  for (Book book:Books_Library.Books)
+	  for (Book book: BooksLibrary.books2)
 	   {
 		  if (book.getTitle().length()>=div)
 		  { 
@@ -43,14 +43,14 @@ public class SearchSteps {
     {
     	 if (found==false) 
     	 {   
-	   		 assertTrue(found==false);
+	   		 assertTrue(!found);
 	   		 System.out.println("No book found with such "+'"'+string+'"');
    	     } 
 	   	 else	  
 	   	 {
-		      assertTrue(found==true);
+		      assertTrue(found);
 			  div=string.length();
-			  for (Book book:Books_Library.Books)
+			  for (Book book: BooksLibrary.books2)
 			   {
 				  if (book.getTitle().length()>=div)
 				  { 
@@ -69,7 +69,7 @@ public class SearchSteps {
 
     	div=string.length();
     	
-  	  for (Book book:Books_Library.Books)
+  	  for (Book book: BooksLibrary.books2)
   	   {
   		 if (book.getAuthor().length()>=div)
 		    { 
@@ -85,14 +85,14 @@ public class SearchSteps {
     {
     	 if (found==false) 
     	  {   
-	   		 assertTrue(found==false);
+	   		 assertTrue(!found);
 	   		 System.out.println("No book found with such "+'"'+string+'"');
    	      } 
 	   	 else	  
 	   	 {
-		      assertTrue(found==true);
+		      assertTrue(found);
 		  	  div=string.length();
-		  	  for (Book book:Books_Library.Books)
+		  	  for (Book book: BooksLibrary.books2)
 		  	   {
 		  		 if (book.getAuthor().length()>=div)
 				    { 
@@ -110,7 +110,7 @@ public class SearchSteps {
     	System.out.printf("----------- %s ----------- %n" , string );
 
   	  div=string.length();
-  	  for (Book book:Books_Library.Books)
+  	  for (Book book: BooksLibrary.books2)
   	   {
   		 if (book.getISBN().length()>=div)
 		    { 
@@ -127,14 +127,14 @@ public class SearchSteps {
     {
     	 if (found==false) 
      	  {   
-    		 assertTrue(found==false);
+    		 assertTrue(!found);
     		 System.out.println("No book found with such "+'"'+string+'"');
     	  } 
     	 else	  
     	 {
-	    	  assertTrue(found==true);
+	    	  assertTrue(found);
 	    	  div=string.length();
-	    	  for (Book book:Books_Library.Books)
+	    	  for (Book book: BooksLibrary.books2)
 	    	   {
 	    		  if (book.getISBN().length()>=div)
 	  		      { 

@@ -1,21 +1,20 @@
 package Test_Package;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import Main_Package.login;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import mainpackage.Login;
+
+import static org.junit.Assert.*;
 
 public class LoginSteps {
 
-    login L = new  login();
+    Login L = new Login();
     @Given("the username is {string} and the password is {string}")
     public void the_username_is_and_the_password_is(String user, String pass) {
         // Write code here that turns the phrase above into concrete actions
         // throw new io.cucumber.java.PendingException();
-        L.set_username(user); L.set_password(pass);
+        L.setUsername(user); L.setPassword(pass);
 
     }
 
@@ -23,7 +22,7 @@ public class LoginSteps {
     public void i_fill_in_the_username(String entered_user) {
         // Write code here that turns the phrase above into concrete actions
         //throw new io.cucumber.java.PendingException();
-        L.entered_username = entered_user;
+        L.setEnteredUsername(entered_user);
 
     }
 
@@ -31,7 +30,7 @@ public class LoginSteps {
     public void i_fill_in_the_password(String entered_pass) {
         // Write code here that turns the phrase above into concrete actions
         //throw new io.cucumber.java.PendingException();
-        L.entered_passsword = entered_pass;
+        L.setEnteredPasssword(entered_pass);
 
     }
 
@@ -39,7 +38,7 @@ public class LoginSteps {
     public void the_user_should_be_logged_in() {
         // Write code here that turns the phrase above into concrete actions
         // throw new io.cucumber.java.PendingException();
-        assertTrue((L.entered_username.equals(L.username)) && (L.entered_passsword.equals(L.password)));
+        assertTrue((L.getEnteredUsername().equals(L.getUsername())) && (L.getEnteredPasssword().equals(L.getPassword())));
 
 
     }
@@ -48,7 +47,7 @@ public class LoginSteps {
     public void the_user_should_not_be_logged_in() {
         // Write code here that turns the phrase above into concrete actions
         // throw new io.cucumber.java.PendingException();
-        assertTrue((L.entered_username.equals(L.username)) && !(L.entered_passsword.equals(L.password)));
+        assertTrue((L.getEnteredUsername().equals(L.getUsername())) && !(L.getEnteredPasssword().equals(L.getPassword())));
 
     }
 
