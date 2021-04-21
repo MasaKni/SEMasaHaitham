@@ -55,9 +55,12 @@ public class SearchSteps {
 			  div=string.length();
 			  for (Book book:arr)
 			   {
-				  sub=book.getTitle().substring(0, div);	
-				  if (book.getTitle().length()>=div && sub.equalsIgnoreCase(string) ) 
+				  if (book.getTitle().length()>=div)
+				  { 
+					 sub=book.getTitle().substring(0, div);		
+					 if (sub.equalsIgnoreCase(string) ) 
 						 System.out.println(book.getTitle()+"---"+book.getAuthor()+"---"+book.getISBN() );
+				  }
 		       }
 	   	 }
     }

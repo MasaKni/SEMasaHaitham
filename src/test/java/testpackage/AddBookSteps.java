@@ -34,8 +34,8 @@ public void the_user_enter_the_the_and_the_and_signature_is(String title, String
 
 private void addNewBook(String title, String author, String isbn, String sign, boolean flag) {
 	if(flag== false)
-	{	library.checkIsbn(this, isbn);
-		
+	{	
+		checkIsbn(isbn);
 	     if(tot%11 == 0)
 	      {
 		    library.addBook(title,author,isbn,sign);
@@ -44,6 +44,21 @@ private void addNewBook(String title, String author, String isbn, String sign, b
 	     else 
 		  Added=false;
 	  }
+}
+public void checkIsbn( String isbn) {
+	for (int j = 0; j <= isbn.length() - 1; j++) 
+	     { 
+		  if (Character.getNumericValue(isbn.charAt(j))>= 0|| Character.getNumericValue(isbn.charAt(j))<= 9)
+		    {
+			  tot+=Character.getNumericValue(isbn.charAt(j)) *num;
+			  num--;
+		    }
+		  else 
+			{
+			//  Added= false;
+			  break;
+			}
+	     }
 }
 
 private boolean checkIfBookInLibrary(String isbn, boolean flag) {
