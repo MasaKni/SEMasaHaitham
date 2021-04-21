@@ -1,19 +1,22 @@
-package Test_Package;
+package testpackage;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import Main_Package.Book;
-import Main_Package.Books_Library;
+import java.util.List;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mainpackage.Book;
+import mainpackage.BooksLibrary;
 
 
 public class SearchSteps {
     boolean found=false;
     int div=0;
     String sub="";
-
+    List<Book> arr=BooksLibrary.getArray();
     @Given("User logged in or not")
     public void User_logged_in_or_not() 
     {
@@ -27,7 +30,7 @@ public class SearchSteps {
 
 	  div=string.length();
 	
-	  for (Book book:Books_Library.Books)
+	  for (Book book:arr)
 	   {
 		  if (book.getTitle().length()>=div)
 		  { 
@@ -43,14 +46,14 @@ public class SearchSteps {
     {
     	 if (found==false) 
     	 {   
-	   		 assertTrue(found==false);
+	   		 assertFalse(found);
 	   		 System.out.println("No book found with such "+'"'+string+'"');
    	     } 
 	   	 else	  
 	   	 {
-		      assertTrue(found==true);
+		      assertTrue(found);
 			  div=string.length();
-			  for (Book book:Books_Library.Books)
+			  for (Book book:arr)
 			   {
 				  if (book.getTitle().length()>=div)
 				  { 
@@ -69,7 +72,7 @@ public class SearchSteps {
 
     	div=string.length();
     	
-  	  for (Book book:Books_Library.Books)
+  	  for (Book book:arr)
   	   {
   		 if (book.getAuthor().length()>=div)
 		    { 
@@ -85,14 +88,14 @@ public class SearchSteps {
     {
     	 if (found==false) 
     	  {   
-	   		 assertTrue(found==false);
+	   		 assertFalse(found);
 	   		 System.out.println("No book found with such "+'"'+string+'"');
    	      } 
 	   	 else	  
 	   	 {
-		      assertTrue(found==true);
+		      assertTrue(found);
 		  	  div=string.length();
-		  	  for (Book book:Books_Library.Books)
+		  	  for (Book book:arr)
 		  	   {
 		  		 if (book.getAuthor().length()>=div)
 				    { 
@@ -110,7 +113,7 @@ public class SearchSteps {
     	System.out.printf("----------- %s ----------- %n" , string );
 
   	  div=string.length();
-  	  for (Book book:Books_Library.Books)
+  	  for (Book book:arr)
   	   {
   		 if (book.getISBN().length()>=div)
 		    { 
@@ -127,22 +130,26 @@ public class SearchSteps {
     {
     	 if (found==false) 
      	  {   
-    		 assertTrue(found==false);
+    		 assertFalse(found);
     		 System.out.println("No book found with such "+'"'+string+'"');
     	  } 
     	 else	  
     	 {
-	    	  assertTrue(found==true);
-	    	  div=string.length();
-	    	  for (Book book:Books_Library.Books)
-	    	   {
-	    		  if (book.getISBN().length()>=div)
-	  		      { 
-		    		 sub=book.getISBN().substring(0, div);		
-		    		 if (sub.equalsIgnoreCase(string) ) 
-		    			 System.out.println(book.getTitle()+"---"+book.getAuthor()+"---"+book.getISBN() );
-	  		      }
-	    		}
+	    	  assertTrue(found);
+	    	  printBookWithIsbn(string);
     	 }
     }
+
+	private void printBookWithIsbn(String string) {
+		div=string.length();
+		  for (Book book:arr)
+		   {
+			  if (book.getISBN().length()>=div)
+		      { 
+				 sub=book.getISBN().substring(0, div);		
+				 if (sub.equalsIgnoreCase(string) ) 
+					 System.out.println(book.getTitle()+"---"+book.getAuthor()+"---"+book.getISBN() );
+		      }
+			}
+	}
 }
