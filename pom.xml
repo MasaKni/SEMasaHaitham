@@ -7,23 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>Software_Project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
-<build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <pluginManagement>
-            <plugins>
 
-                <plugin>
-                    <groupId>org.sonarsource.scanner.maven</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.7.0.174
-
-                        6</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 <dependencies>
 
 
@@ -53,5 +37,29 @@
     </dependencies>
 
 
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>11</source>
+                <target>11</target>
+            </configuration>
+        </plugin>
+    </plugins>
 
+  
+<sourceDirectory>src/main/java</sourceDirectory>
+<testSourceDirectory>src/test/java</testSourceDirectory>
+<pluginManagement>
+<plugins>
+<plugin>
+<groupId>org. sonarsource. scanner .maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId>
+<version>3.7.0.1746</version>
+          </plugin>
+            </plugins>
+                </pluginManagement>
+                  </build>
 </project>
