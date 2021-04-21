@@ -1,11 +1,11 @@
-package Test_Package;
+package testpackage;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "use_cases" , glue = "Test_Package" )
+@CucumberOptions(features = "use_cases" , glue = "testpackage" )
 public class Config {
 
 }
